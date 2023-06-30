@@ -1,0 +1,14 @@
+div {
+    width: 50%;
+    height: 100px;
+    float: left;
+
+}
+
+.div1 {
+    background-color: yellow;
+}
+
+.div2 {
+    background-color: blue;
+}

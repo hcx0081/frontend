@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        姓：<input type="text" v-model="firstName">
+        名：<input type="text" v-model="lastName">
+
+        <div>{{fullName}}</div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '',
+                lastName: '',
+
+                // 监视属性
+                fullName: ''
+            },
+            watch: {
+                firstName: {
+                    immediate: true,
+                    handler: function (newVal, oldVal) {
+                        this.fullName = newVal + '-' + this.lastName;
+                    }
+                },
+                lastName: {
+                    deep: true,
+                    handler: function (newVal, oldVal) {
+                        this.fullName = this.firstName + '-' + newVal;
+                    }
+                }
+
+                // firstName(newVal, oldVal) {
+                //     this.fullName = newVal + '-' + this.lastName;
+                // },
+                // lastName(newVal, oldVal) {
+                //     this.fullName = this.firstName + '-' + newVal;
+                // }
+            }
+        });
+    </script>
+</body>
+
+</html>

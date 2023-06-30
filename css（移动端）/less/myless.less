@@ -1,0 +1,20 @@
+@w: 200px;
+@h: 200px;
+
+div {
+  width: @w;
+  height: @h;
+  background-color: pink;
+
+  &:hover {
+    width: @w;
+    height: @h;
+    background-color: green;
+  }
+}
+
+@conversion-1: (10 / 10px);
+
+div {
+  width: @conversion-1;
+}

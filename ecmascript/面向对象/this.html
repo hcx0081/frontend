@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>This is a button!</button>
+    <div></div>
+    <script>
+        var that;// 声明保存this的变量
+        class Person {
+            constructor(name) {
+                that = this;// 保存this
+                this.name = name;
+                console.log(this);
+                /* 点击按钮获取姓名 */
+                document.querySelector('button').onclick = function () {
+                    console.log(this);// 此时的this指向button元素
+                    console.log(that);// 使用保存的this，此时的this指向实例对象
+                };
+            }
+        }
+
+        var per = new Person('zs');
+    </script>
+</body>
+
+</html>

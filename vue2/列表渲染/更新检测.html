@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <button @click="change">Change</button>
+        <ul>
+            <li v-for="(person, index) of personList" :key="person.id">{{person}}</li>
+        </ul>
+        <ul>
+            <li v-for="(animal, index) of animalList" :key="index">{{animal}}</li>
+        </ul>
+        {{obj}}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                personList: [
+                    {id: '1', name: '马冬梅', age: 19, sex: '女'},
+                    {id: '2', name: '周冬雨', age: 20, sex: '女'},
+                    {id: '3', name: '周杰伦', age: 21, sex: '男'},
+                    {id: '4', name: '温兆伦', age: 22, sex: '男'}
+                ],
+                animalList: ['cat', 'dog', 'fish'],
+            },
+            methods: {
+                change() {
+                    /* 该方式会触发视图更新 */
+                    // this.personList[0].id = '11';
+                    // this.personList[0].name = 'zs';
+                    // this.personList[0].age = 20;
+                    // this.personList[0].sex = '男';
+                    // this.animalList[0] = 'panda';
+
+                    // this.animalList = ['panda'];
+
+
+                    /* 该方式不会触发视图更新 */
+                    // this.personList[0] = { id: "11", name: "zs", age: 20, sex: "男" };
+                    // this.animalList[0] = 'panda';
+
+
+                    // Vue.set(vm._data, this.personList[0], { id: "11", name: "zs", age: 20, sex: "男" });
+                    // Vue.set(this.animalList, 0, 'panda');
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

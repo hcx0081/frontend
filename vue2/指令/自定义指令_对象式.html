@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id='root'>
+        <!-- 需要定义一个页面一加载立即获得焦点的指令 -->
+        <input type="text" v-focus>
+    </div>
+    <script>
+        new Vue({
+            el: '#root',
+            directives: {
+                /* 这种写法实现不了需求 */
+                // focus(el) {
+                //     el.focus();
+                // }
+                focus: {
+                    inserted(el) {
+                        el.focus();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

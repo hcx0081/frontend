@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .container ul li {
+            float: left;
+            width: 83.33px;
+            height: 30px;
+            background-color: aliceblue;
+        }
+
+        /* 超小屏幕 */
+        @media screen and (max-width: 767px) {
+            .container {
+                width: 100%;
+            }
+
+            .container ul li {
+                float: left;
+                width: 33.33%;
+                height: 30px;
+                background-color: aliceblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+            <li>li</li>
+        </ul>
+    </div>
+</body>
+
+</html>

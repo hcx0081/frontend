@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id='root'>
+        <app></app>
+    </div>
+    <script>
+        // 定义子组件，需要先于父组件定义
+        const son = Vue.extend({
+            template: '<div>{{mes}}</div>',
+            data() {
+                return {
+                    mes: 'world'
+                };
+            },
+        });
+        // 定义父组件
+        const father = Vue.extend({
+            template: '<div style="background-color: pink">{{mes}}<son></son></div>',// 父组件包含子组件
+            data() {
+                return {
+                    mes: 'hello'
+                };
+            },
+            components: {
+                son
+            }
+        });
+
+        // 定义与父组件同级的猫组件
+        const cat = Vue.extend({
+            template: '<div>{{mes}}</div>',
+            data() {
+                return {
+                    mes: 'mi'
+                };
+            },
+        });
+
+        /* 定义管理组件 */
+        const app = Vue.extend({
+            template:
+                `<div>
+                    <father></father>
+                    <cat></cat>
+                </div>`,
+            components: {
+                father,
+                cat
+            }
+        });
+
+
+        // vm
+        new Vue({
+            el: '#root',
+            components: {
+                app// 只需注册app组件
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id='root'>
+        <!-- 使用全局组件 -->
+        <!-- <button-counter></button-counter> -->
+
+        <!-- 3.使用局部组件 -->
+        <button-counter></button-counter>
+    </div>
+    <script>
+        // 定义全局组件
+        // Vue.component('button-counter', {
+        //     template: 
+        //         `<div>
+        //             <button v-on:click="count++">Click</button>
+        //             <span>You clicked me {{ count }} times.</span>
+        //         </div>`,
+        //     data: function () {
+        //         return {
+        //             count: 0
+        //         };
+        //     },
+        // });
+
+
+        // 1.定义局部组件
+        const buttonCounter = Vue.extend({
+            template:
+                `<div>
+                    <button v-on:click="count++">Click</button>
+                    <span>You clicked me {{ count }} times.</span>
+                </div>`,
+            data: function () {
+                return {
+                    count: 0
+                };
+            },
+        });
+        new Vue({
+            el: '#root',
+            components: {
+                // 2.注册局部组件
+                'button-counter': buttonCounter
+            },
+        });
+    </script>
+</body>
+
+</html>

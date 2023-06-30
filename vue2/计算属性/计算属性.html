@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        姓：<input type="text" v-model="firstName">
+        名：<input type="text" v-model="lastName">
+
+        <!-- <div>{{getFullName()}}</div> -->
+
+        <div>{{fullName}}</div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '',
+                lastName: ''
+            },
+            methods: {
+                getFullName() {
+                    return this.firstName + '-' + this.lastName;
+                }
+            },
+            computed: {
+                fullName: {
+                    get() {
+                        return this.firstName + '-' + this.lastName;
+                    },
+                    /* 也可以提供Setter，但是通常不需要 */
+                    set(newValue) {
+                        var nameList = newValue.split('-');
+                        this.firstName = nameList[0];
+                        this.lastName = nameList[1];
+                    }
+                },
+                // 简写
+                // fullName() {
+                //     return this.firstName + '-' + this.lastName;
+                // }
+            },
+        });
+    </script>
+</body>
+
+</html>

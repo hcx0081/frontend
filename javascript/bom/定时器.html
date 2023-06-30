@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>I</div>
+    <button id="start">加载</button>
+    <button id="end">结束</button>
+    <script>
+        var timer;
+        document.getElementById('start').onclick = () => {
+            /* 在开启定时器之前先结束定时器，否则出现连点情况执行函数的速度会变快 */
+            clearInterval(timer);
+            timer = setInterval(() => {
+                document.querySelector('div').innerHTML += 'I';
+            }, 100);
+        };
+        document.getElementById('end').onclick = () => {
+            clearInterval(timer);
+        };
+    </script>
+</body>
+
+</html>

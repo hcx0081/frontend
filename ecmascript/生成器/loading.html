@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* load() {
+            loading();
+            yield showData();
+            hidden();
+        }
+
+        var ite = load();
+        ite.next();
+
+        function loading() {
+            console.log('加载loading');
+        }
+
+        function showData() {
+            setTimeout(() => {
+                console.log('数据加载完成');
+
+                ite.next();// 需要在异步中next，如果在setTimeout方法外部next，则会死循环
+            }, 1000);
+        }
+
+        function hidden() {
+            console.log('隐藏loading');
+        }
+
+        /* 异步代码异步执行，控制不了顺序 */
+        // loading();
+        // showData();
+        // hidden();
+    </script>
+</body>
+
+</html>

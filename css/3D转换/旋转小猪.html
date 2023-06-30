@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes dance {
+            0% {
+                transform: rotateY(0);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+
+        .box {
+            position: relative;
+
+            transform-style: preserve-3d;
+            /* perspective: 1000px; */
+
+
+            animation: dance 5s ease infinite;
+        }
+
+        div {
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 320px;
+            height: 320px;
+
+            position: absolute;
+        }
+
+        .pig1 {
+            transform: translateZ(300px);
+        }
+
+        .pig2 {
+            transform: rotateY(90deg) translateZ(300px);
+        }
+
+        .pig3 {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .pig4 {
+            transform: rotateY(270deg) translateZ(300px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="pig1">
+            <img src="./img/pig.jpg" alt="">
+        </div>
+        <div class="pig2">
+            <img src="./img/pig.jpg" alt="">
+        </div>
+        <div class="pig3">
+            <img src="./img/pig.jpg" alt="">
+        </div>
+        <div class="pig4">
+            <img src="./img/pig.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

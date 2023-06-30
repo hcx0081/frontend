@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td>
+                <a href="deleteEmp?id=e01">Delete</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Bob</td>
+            <td>bob@tom.com</td>
+            <td>10000</td>
+            <td>
+                <a href="deleteEmp?id=e02">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td>name:</td>
+                <td>
+                    <input type="text" name="name" id="name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>email:</td>
+                <td>
+                    <input type="text" name="email" id="email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>salary:</td>
+                <td>
+                    <input type="text" name="salary" id="salary"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton">submit</button>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            var aList = document.querySelectorAll('a');
+            for (var i = 0; i < aList.length; i++) {
+                aList[i].onclick = function () {
+                    /*
+                        如果i使用var声明：
+                            以下的this不可以为aList[i]，因为var没有块级作用域，循环完毕后下面使用时为2
+                        如果i使用let声明：
+                            以下的this可以为aList[i]，因为let有块级作用域，循环完毕后下面使用时还是为0
+                    */
+                    if (confirm('是否删除' + this.parentNode.parentNode.querySelector('td').innerText + '?')) {
+                        this.parentNode.parentNode.remove();
+                    }
+                    return false;
+                };
+            }
+
+
+            var empButton = document.querySelector('#addEmpButton');
+            empButton.onclick = function () {
+                var tr = document.createElement('tr');
+                var nameTd = document.createElement('td');
+                var emailTd = document.createElement('td');
+                var salaryTd = document.createElement('td');
+                var deleteTd = document.createElement('td');
+                var deleteA = document.createElement('a');
+                tr.appendChild(nameTd);
+                tr.appendChild(emailTd);
+                tr.appendChild(salaryTd);
+                deleteTd.appendChild(deleteA);
+                tr.appendChild(deleteTd);
+
+
+                nameTd.innerHTML = document.getElementById('name').value;
+                emailTd.innerHTML = document.getElementById('email').value;
+                salaryTd.innerHTML = document.getElementById('salary').value;
+                deleteA.innerHTML = 'Delete';
+                deleteA.href = 'deleteEmp';
+
+                document.getElementsByTagName('tbody')[0].appendChild(tr);
+
+                // 遍历绑定事件，需要添加到文档以后才能获取到新添加的超链接元素
+                // var aList = document.querySelectorAll('a');
+                // for (let i = 0; i < aList.length; i++) {
+                //     aList[i].onclick = function () {
+                //         if (confirm('是否删除' + this.parentNode.parentNode.querySelector('td').innerText + '?')) {
+                //             this.parentNode.parentNode.remove();
+                //         }
+                //         return false;
+                //     };
+                // }
+
+                // 属性绑定事件，不需要在添加到文档之前设置，因为通过DOM操作节点大部分都是实时更新的
+                deleteA.onclick = function () {
+                    if (confirm('是否删除' + this.parentNode.parentNode.querySelector('td').innerText + '?')) {
+                        this.parentNode.parentNode.remove();
+                    }
+                    return false;
+                };
+            };
+
+        </script>
+</body>
+
+</html>

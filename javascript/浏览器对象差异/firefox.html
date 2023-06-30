@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 火狐中log和dir一致 */
+
+        /* 字面量对象 */
+        var obj1 = {};
+        console.log(obj1);// Object {  }
+        console.dir(obj1);// Object {  }
+        console.log(obj1.prototype);// undefined
+        console.log(obj1.__proto__);// Object { … }
+        console.log(obj1.__proto__.__proto__);// null
+
+
+        // /* new对象 */
+        // var obj2 = new Object();
+        // console.log(obj2);// Object {  }
+        // console.dir(obj2);// Object {  }
+        // console.log(obj2.prototype);// undefined
+        // console.log(obj2.__proto__);// Object { … }
+        // console.log(obj2.__proto__.__proto__);// null
+
+
+        /* 构造函数对象 */
+        // function Person() {
+        // }
+        // console.log(Person);// function Person()
+        // console.dir(Person);// function Person()
+        // console.log(Person.prototype);// Object { … }
+        // console.log(Person.prototype.prototype);// undefined
+        // console.log(Person.prototype.__proto__);// Object { … }
+        // console.log(Person.prototype.__proto__.__proto__);// null
+        // console.log(Person.__proto__);// function ()
+        // console.log(Person.__proto__.__proto__);// Object { … }
+        // console.log(Person.__proto__.__proto__.__proto__);// null
+
+        // var per3 = new Person();
+        // console.log(per3);// Object {  }
+        // console.dir(per3);// Object {  }
+
+        // console.log(per3.prototype);// undefined
+        // console.log(per3.__proto__);// Object { … }
+        // console.log(per3.__proto__.__proto__);// Object { … }
+        // console.log(per3.__proto__.__proto__.__proto__);// null
+
+
+        /* 命名函数 */
+        // function fn1() {
+        // }
+        // console.log(fn1);// function fn1()
+        // console.dir(fn1);// function fn1()
+        // console.log(fn1.prototype);// Object { … }
+        // console.log(fn1.prototype.prototype);// undefined
+        // console.log(fn1.prototype.__proto__);// Object { … }
+        // console.log(fn1.prototype.__proto__.__proto__);// null
+        // console.log(fn1.__proto__);// function ()
+        // console.log(fn1.__proto__.__proto__);// Object { … }
+        // console.log(fn1.__proto__.__proto__.__proto__);// null
+
+
+        /* 匿名函数 */
+        // var fn2 = function () {
+        // };
+        // console.log(fn2);// function fn2()
+        // console.dir(fn2);// function fn2()
+        // console.log(fn2.prototype);// Object { … }
+        // console.log(fn2.prototype.prototype);// undefined
+        // console.log(fn2.prototype.__proto__);// Object { … }
+        // console.log(fn2.prototype.__proto__.__proto__);// null
+        // console.log(fn2.__proto__);// function ()
+        // console.log(fn2.__proto__.__proto__);// Object { … }
+        // console.log(fn2.__proto__.__proto__.__proto__);// null
+    </script>
+</body>
+
+</html>

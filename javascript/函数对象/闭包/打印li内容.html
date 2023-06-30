@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>hello</li>
+        <li>world</li>
+        <li>!!!</li>
+    </ul>
+    <script>
+        var liList = document.querySelector('ul').querySelectorAll('li');
+
+        // var关键字声明的变量没有块级作用域，是全局变量
+        for (var i = 0; i < liList.length; i++) {
+            /* 传统写法 */
+            liList[i].index = i;
+            console.log(liList);
+            liList[i].onclick = function () {
+                alert(liList[this.index].innerHTML);
+            };
+
+            /* 闭包写法 */
+            /* 每次循环都会创建一个立即执行函数，且需要等待点击事件结束以后才会销毁index变量，占用内存 */
+            // (function (index) {
+            //     liList[index].onclick = function () {
+            //         alert(liList[index].innerHTML);
+            //     };
+            // })(i);
+        }
+    </script>
+</body>
+
+</html>

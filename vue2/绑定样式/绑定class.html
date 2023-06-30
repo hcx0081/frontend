@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .clz1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .clz2 {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 字符串写法 -->
+        <div class="styClz" :class="strList"></div>
+        <!-- 数组写法 -->
+        <div class="styClz" :class="[clz1, clz2]"></div>
+        <!-- 对象写法 -->
+        <div class="styClz" :class="clzObj"></div>
+        <div class="styClz" :class="{clz1: true, clz2: true}"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                /* 字符串写法 */
+                strList: 'clz1 clz2',
+
+                /* 数组写法 */
+                clz1: 'clz1',
+                clz2: 'clz2',
+
+                /* 对象写法 */
+                clzObj: {
+                    clz1: true,
+                    clz2: true
+                },
+
+            }
+        });
+    </script>
+</body>
+
+</html>

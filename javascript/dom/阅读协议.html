@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+
+        p {
+            height: 500px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>hello</h3>
+    <div>
+        锦瑟无端五十弦，一线一柱思华年。
+        庄生晓梦迷蝴蝶，望帝春心托杜鹃。
+        锦瑟无端五十弦，一线一柱思华年。
+        庄生晓梦迷蝴蝶，望帝春心托杜鹃。
+        锦瑟无端五十弦，一线一柱思华年。
+        庄生晓梦迷蝴蝶，望帝春心托杜鹃。
+        锦瑟无端五十弦，一线一柱思华年。
+        庄生晓梦迷蝴蝶，望帝春心托杜鹃。
+    </div>
+    <input type="checkbox" name="" id="" disabled>已阅
+    <script>
+        // console.log(document.querySelector('div').clientHeight);
+        // console.log(document.querySelector('div').scrollHeight);
+        // document.querySelector('div').onscroll = function () {
+        //     console.log(document.querySelector('div').scrollTop);
+        // }
+
+        var div = document.querySelector('div');
+        div.onscroll = function () {
+            if (div.scrollHeight - div.scrollTop == div.clientHeight) {
+                document.querySelector('input').disabled = false;
+            } else {
+                document.querySelector('input').disabled = true;
+            }
+        };
+    </script>
+</body>
+
+</html>

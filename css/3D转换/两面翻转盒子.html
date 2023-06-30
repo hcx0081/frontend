@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            top: 100px;
+            left: 0;
+            line-height: 30px;
+            /* 开启3d呈现 */
+            transform-style: preserve-3d;
+
+            perspective: 100px;
+        }
+
+        .box:hover {
+            transform: rotateX(180deg);
+            transition: all 10s ease;
+        }
+
+        div {
+            width: 100px;
+            height: 30px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .front {
+            position: absolute;
+            background-color: aliceblue;
+            z-index: 1;
+
+        }
+
+        .back {
+            position: absolute;
+            background-color: pink;
+            /* 需要往后移动1px，否则两个盒子重合 */
+            transform: translateZ(-1px) rotateX(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front">hello</div>
+        <div class="back">world</div>
+    </div>
+
+</body>
+
+</html>

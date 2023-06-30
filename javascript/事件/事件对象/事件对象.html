@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        ul.onclick = function (event) {
+            console.log(this);// 返回的是绑定事件的对象，即ul
+            console.log(event.target);// 返回的是触发事件的对象，即li
+        };
+    </script>
+    <script>
+        document.querySelector('div').onmouseover = function (a, b, c) {
+            console.log(arguments);
+            console.log(a);// 第一个参数就是事件对象
+            console.log(b);
+            console.log(c);
+        };
+    </script>
+</body>
+
+</html>

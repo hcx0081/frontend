@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Vue</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">{{message}}</div>
+    <script>
+        // 取消显示生产提示
+        Vue.config.productionTip = false;
+        const app = new Vue({
+            el: '#root',
+            // data: {
+            //     message: 'Hello Vue!'
+            // }
+            data: function () {
+                return {
+                    message: 'Hello Vue!'
+                };
+            },
+        });
+    </script>
+</body>
+
+</html>

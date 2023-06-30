@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    hello
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        /* 在当前元素按下鼠标触发 */
+        div.onmousedown = function (event) {
+            // flag = true;
+
+            // 获取当前鼠标在当前元素的位置，按下鼠标之后移动鼠标之前计算
+            var x = event.pageX - div.offsetLeft;
+            var y = event.pageY - div.offsetTop;
+
+
+            /* 在页面移动鼠标触发，需要先在当前元素按下鼠标 */
+            document.onmousemove = function (event) {
+                // if (flag) {
+                //     div.style.left = event.pageX + "px";
+                //     div.style.top = event.pageY + "px";
+                // }
+
+                div.style.left = event.pageX - x + 'px';
+                div.style.top = event.pageY - y + 'px';
+
+
+                /* 在页面松开鼠标触发，需要先在当前元素单击鼠标，再在页面移动鼠标 */
+                document.onmouseup = function () {
+                    // flag = false;
+                    // div.style.left = this.pageX + "px";
+                    // div.style.top = this.pageY + "px";
+
+                    document.onmousemove = null;
+
+                };
+
+                /* 阻止默认行为 */
+                event.preventDefault();
+                // return false;
+            };
+        };
+    </script>
+</body>
+
+</html>

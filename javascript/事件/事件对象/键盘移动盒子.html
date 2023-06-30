@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 0 auto;
+            padding: 0 auto;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        /* 使用定时器解决移动盒子卡顿 */
+        var timer;
+        document.onkeydown = (event) => {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                switch (event.key) {
+                    case 'ArrowUp':
+                        // document.querySelector('div').style.top = --document.querySelector('div').offsetTop + "px";
+                        document.querySelector('div').style.top = document.querySelector('div').offsetTop - 10 + 'px';
+                        break;
+                    case 'ArrowRight':
+                        // document.querySelector('div').style.left = ++document.querySelector('div').offsetLeft + "px";
+                        document.querySelector('div').style.left = document.querySelector('div').offsetLeft + 10 + 'px';
+                        break;
+                    case 'ArrowDown':
+                        // document.querySelector('div').style.top = ++document.querySelector('div').offsetTop + "px";
+                        document.querySelector('div').style.top = document.querySelector('div').offsetTop + 10 + 'px';
+                        break;
+                    case 'ArrowLeft':
+                        // document.querySelector('div').style.left = --document.querySelector('div').offsetLeft + "px";
+                        document.querySelector('div').style.left = document.querySelector('div').offsetLeft - 10 + 'px';
+                        break;
+                    default:
+                        break;
+                }
+            }, 1);
+        };
+        document.onkeyup = () => {
+            clearInterval(timer);
+        };
+    </script>
+</body>
+
+</html>

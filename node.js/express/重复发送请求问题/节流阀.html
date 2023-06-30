@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送</button>
+    <script>
+        var btn = document.querySelector('button');
+        // 节流阀，防止重复点击
+        let flag = true;
+        var xhr;
+        btn.addEventListener('click', function () {
+            if (flag == false) {
+                // 如果当前请求已被发出，取消当前请求，即取消的是上一个已发出的请求
+                xhr.abort();
+            }
+
+            xhr = new XMLHttpRequest();
+            xhr.open('get', 'http://localhost/get');
+            xhr.responseType = 'json';
+            xhr.send();
+            flag = false;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.response);
+                    console.log(xhr.response.msg);
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

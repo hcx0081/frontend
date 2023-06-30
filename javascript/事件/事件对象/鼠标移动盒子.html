@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body style="height: 1000px;">
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <script>
+        document.onmousemove = function (event) {
+            // document.querySelector(".box2").style.left = event.clientX + "px";
+            // document.querySelector(".box2").style.top = event.clientY +  document.documentElement.scrollTop + "px";
+            // 或👇
+            document.querySelector('.box2').style.left = event.pageX + 'px';
+            document.querySelector('.box2').style.top = event.pageY + 'px';
+        };
+
+        /* 阻止事件冒泡 */
+        document.querySelector('.box1').onmousemove = function (event) {
+            event.cancelBubble = true;
+        };
+    </script>
+</body>
+
+</html>

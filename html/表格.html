@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th,
+    td {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <table id="table" class="my-table" width="800" border="1" style="overflow:scroll;"></table>
+    <script>
+        let html
+            =
+            `<caption style="text-align: center;font-size: 16px;font-weight: 600;color: #000;border: 1px solid #000;border-bottom: 0px;">福建省高速公路集团有限公司福州管理分公司养护中心 </br>养护站计件工资月汇总表</caption>
+            <thead>
+                <tr>
+                    <th colspan="8" style="text-align: right">时间：</th>
+                </tr>
+                <tr>
+                    <th >序号</th>
+                    <th colspan="2" >养护站</th>
+                    <th >路段</th>
+                    <th >呈报计件工资<br>（元）</th>
+                    <th >审计后计件工资<br>（元）</th>
+                    <th >备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4" >1</td>
+                    <td rowspan="4" >白沙养护站</td>
+                    <td rowspan="2" >金沙作业组</td>
+                    <td >福营福州段</td>
+                    <td >30</td>
+                    <td >30</td>
+                    <td >无</td>
+                </tr>
+                <tr>
+                    <td >小计</td>
+                    <td >3</td>
+                    <td >3</td>
+                    <td >3</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">白沙作业组</td>
+                    <td >福营福州段</td>
+                   <td >30</td>
+                    <td >30</td>
+                      <td >无</td>
+                </tr>
+                <tr>
+                    <td >小计</td>
+                    <td >3</td>
+                    <td >3</td>
+                      <td >无</td>
+                </tr>
+                <tr>
+                    <td colspan="4">合计：</td>
+                    <td >11</td>
+                    <td >11</td>
+                    <td >无</td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="text-align:left">注∶请各养护站按审核后的计件工资进行分配，并及时将分配表交综合部。</td>
+                </tr>
+                 <tr>
+                    <td colspan="3" style="text-align:left">主管领导</td>
+                    <td colspan="2" style="text-align:left">分管领导：</td>
+                    <td style="text-align:left">工程部：</td>
+                    <td style="text-align:left">制表：</td>
+                </tr>
+            </tbody>
+            `;
+        document.getElementsByClassName('my-table')[0].innerHTML = html;
+    </script>
+</body>
+
+</html>
