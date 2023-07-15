@@ -1,3 +1,8 @@
+/**
+ * 深拷贝
+ * @param oldObj 源
+ * @param newObj 目标
+ */
 function deepCopy(oldObj, newObj) {
     for (var k in oldObj) {
         var item = oldObj[k];
