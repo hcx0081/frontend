@@ -1,11 +1,11 @@
-function deepCopy(newObj, oldBbj) {
-    for (var k in oldBbj) {
-        var item = oldBbj[k];
+function deepCopy(oldObj, newObj) {
+    for (var k in oldObj) {
+        var item = oldObj[k];
         /* 判断属性值的数据类型 */
         // 判断属性值是否为数组
         if (item instanceof Array) {
             newObj[k] = [];
-            deepCopy(newObj[k], item);
+            deepCopy(item, newObj[k]);
         }
         // 判断属性值是否为函数
         else if (item instanceof Function) {
@@ -13,7 +13,7 @@ function deepCopy(newObj, oldBbj) {
         } else if (item instanceof Object) {
             // 判断属性值是否为对象
             newObj[k] = {};
-            deepCopy(newObj[k], item);
+            deepCopy(item, newObj[k]);
         } else {
             // 属于简单数据类型
             newObj[k] = item;
@@ -35,7 +35,7 @@ var src = {
 };
 
 var obj = {};
-deepCopy(obj, src);
+deepCopy(src, obj);
 
 obj.girl.name = 'ww';
 console.log(obj);
