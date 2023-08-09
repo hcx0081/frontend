@@ -1,14 +1,14 @@
 export const myMixin1 = {
-    methods: {
-        say() {
-            alert('hi~');
-        },
-    }
+  methods: {
+    say() {
+      alert('hi~');
+    },
+  }
 };
 export const myMixin2 = {
-    data() {
-        return {
-            mes: '🤣'
-        };
-    },
+  data() {
+    return {
+      mes: '🤣'
+    };
+  },
 };
